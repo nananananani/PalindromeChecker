@@ -229,5 +229,28 @@ class BasicStrategy implements PalindromeStrategy {
         return true;
     }
 }
+// UC13
+
+public static void uc13_performanceTest() {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter a word:");
+    String s = sc.nextLine();
+    long start = System.nanoTime();
+    int i = 0;
+    int j = s.length()-1;
+    boolean isPalindrome = true;
+    while(i < j) {
+        if(s.charAt(i) != s.charAt(j)) {
+            isPalindrome = false;
+            break;
+        }
+
+        i++;
+        j--;
+    }
+
+    long end = System.nanoTime();
+    System.out.println("Execution time: "+(end-start));
+}
 
 }
