@@ -22,11 +22,12 @@ public class PalindromeChecker {
         else{
         System.out.println("Not Palindrome");
         } 
-        stringPalindrome(); //calling the method for UC3
+        uc3_stringPalindrome(); //calling the method for UC3
+        uc4_arrayPalindrome(); //calling the method for UC4
     }
         // UC3
 
-    public static void stringPalindrome() {
+    public static void uc3_stringPalindrome() {
             String s = "racecar";
             int i = 0;
             int j = s.length() - 1;
@@ -41,5 +42,23 @@ public class PalindromeChecker {
             }
             System.out.println(isPalindrome ? "Palindrome" : "Not Palindrome");
         
+    }
+
+    // UC4
+    public static void uc4_arrayPalindrome() {
+        String s = "level";
+        char[] arr = s.toCharArray();
+        int i = 0;
+        int j = arr.length - 1;
+        boolean isPalindrome = true;
+        while (i < j) {
+            if (arr[i] != arr[j]) {
+                isPalindrome = false;
+                break;
+            }
+            i++;
+            j--;
+        }
+        System.out.println(isPalindrome ? "Palindrome" : "Not Palindrome");
     }
 }
