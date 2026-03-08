@@ -37,6 +37,7 @@ public class PalindromeChecker {
         uc7_dequePalindrome(); //calling the method for UC7
         uc8_linkedListPalindrome(); //calling the method for UC8    
         uc9_recursiveCheck(word, 0, word.length() - 1); //calling the method for UC9
+        uc10_ignoreCaseSpaces(); //calling the method for UC10
 
     }
         // UC3
@@ -161,6 +162,25 @@ public class PalindromeChecker {
         return false;
 
     return uc9_recursiveCheck(s,start+1,end-1);
+}
+public static void uc10_ignoreCaseSpaces() {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter a word:");
+    String s = sc.nextLine();
+    s = s.toLowerCase().replace(" ","");
+    int i = 0;
+    int j = s.length()-1;
+    boolean isPalindrome = true;
+    while(i < j) {
+        if(s.charAt(i) != s.charAt(j)) {
+            isPalindrome = false;
+            break;
+        }
+
+        i++;
+        j--;
+    }
+    System.out.println(isPalindrome ? "Palindrome":"Not Palindrome");
 }
 
 }
