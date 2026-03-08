@@ -21,6 +21,25 @@ public class PalindromeChecker {
         System.out.println("Palindrome");}
         else{
         System.out.println("Not Palindrome");
-        }   
+        } 
+        stringPalindrome(); //calling the method for UC3
+    }
+        // UC3
+
+    public static void stringPalindrome() {
+            String s = "racecar";
+            int i = 0;
+            int j = s.length() - 1;
+            boolean isPalindrome = true;
+            while (i < j) {
+                if (s.charAt(i) != s.charAt(j)) {
+                    isPalindrome = false;
+                    break;
+                }
+            i++;
+            j--;
+            }
+            System.out.println(isPalindrome ? "Palindrome" : "Not Palindrome");
+        
     }
 }
