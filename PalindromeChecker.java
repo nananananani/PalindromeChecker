@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -13,7 +15,7 @@ public class PalindromeChecker {
         System.out.println("You entered: " + input);
 
         // UC2
-        String word = "madam";
+        String word = sc.nextLine();
         String rev = "";
         for(int i = word.length()-1; i>=0; i--){
         rev += word.charAt(i);
@@ -26,6 +28,7 @@ public class PalindromeChecker {
         uc3_stringPalindrome(); //calling the method for UC3
         uc4_arrayPalindrome(); //calling the method for UC4
         uc5_stackPalindrome(); //calling the method for UC5
+        uc6_stackQueuePalindrome(); //calling the method for UC6
     }
         // UC3
 
@@ -76,5 +79,24 @@ public class PalindromeChecker {
             System.out.println("Palindrome");
         else
             System.out.println("Not Palindrome");
+    }
+    // UC6
+
+    public static void uc6_stackQueuePalindrome() {
+        String s = "radar";
+        Stack<Character> stack = new Stack<>();
+        Queue<Character> queue = new LinkedList<>();
+        for(char c : s.toCharArray()) {
+            stack.push(c);
+            queue.add(c);
+        }
+        boolean isPalindrome = true;
+        while(!stack.isEmpty()) {
+            if(stack.pop() != queue.remove()) {
+                isPalindrome = false;
+                break;
+            }
+        }
+        System.out.println(isPalindrome ? "Palindrome" : "Not Palindrome");
     }
 }
