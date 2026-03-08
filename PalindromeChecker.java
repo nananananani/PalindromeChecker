@@ -1,3 +1,5 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -29,6 +31,8 @@ public class PalindromeChecker {
         uc4_arrayPalindrome(); //calling the method for UC4
         uc5_stackPalindrome(); //calling the method for UC5
         uc6_stackQueuePalindrome(); //calling the method for UC6
+        uc7_dequePalindrome(); //calling the method for UC7
+        uc8_linkedListPalindrome(); //calling the method for UC8    
     }
         // UC3
 
@@ -98,5 +102,41 @@ public class PalindromeChecker {
             }
         }
         System.out.println(isPalindrome ? "Palindrome" : "Not Palindrome");
+    }
+    // UC7
+
+    public static void uc7_dequePalindrome() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a word:");
+        String s = sc.nextLine();
+        Deque<Character> deque = new ArrayDeque<>();
+        for(char c : s.toCharArray())
+            deque.add(c);
+        boolean isPalindrome = true;
+        while(deque.size() > 1) {
+        if(deque.removeFirst() != deque.removeLast()) {
+            isPalindrome = false;
+            break;
+        }
+    }
+    System.out.println(isPalindrome ? "Palindrome" : "Not Palindrome");
+}
+// UC8
+
+    public static void uc8_linkedListPalindrome() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a word:");
+        LinkedList<Character> list = new LinkedList<>();
+        String s = sc.nextLine();
+        for(char c : s.toCharArray())
+            list.add(c);
+        boolean isPalindrome = true;
+        while(list.size() > 1) {
+        if(!list.removeFirst().equals(list.removeLast())) {
+            isPalindrome = false;
+            break;
+        }
+    }
+    System.out.println(isPalindrome ? "Palindrome" : "Not Palindrome");
     }
 }
