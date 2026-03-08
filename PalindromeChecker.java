@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Stack;
 
 public class PalindromeChecker {
     public static void main(String[] args) {
@@ -24,6 +25,7 @@ public class PalindromeChecker {
         } 
         uc3_stringPalindrome(); //calling the method for UC3
         uc4_arrayPalindrome(); //calling the method for UC4
+        uc5_stackPalindrome(); //calling the method for UC5
     }
         // UC3
 
@@ -60,5 +62,19 @@ public class PalindromeChecker {
             j--;
         }
         System.out.println(isPalindrome ? "Palindrome" : "Not Palindrome");
+    }
+    // UC5
+    public static void uc5_stackPalindrome() {
+        Stack<Character> stack = new Stack<>();
+        String s = "madam";
+        for(char c : s.toCharArray())
+            stack.push(c);
+        String reversed = "";
+        while(!stack.isEmpty())
+            reversed += stack.pop();
+        if(s.equals(reversed))
+            System.out.println("Palindrome");
+        else
+            System.out.println("Not Palindrome");
     }
 }
