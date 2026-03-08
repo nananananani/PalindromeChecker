@@ -29,7 +29,8 @@ public class PalindromeChecker {
         System.out.println("Palindrome");}
         else{
         System.out.println("Not Palindrome");
-        } 
+        }
+        
         uc3_stringPalindrome(); //calling the method for UC3
         uc4_arrayPalindrome(); //calling the method for UC4
         uc5_stackPalindrome(); //calling the method for UC5
@@ -153,6 +154,7 @@ public class PalindromeChecker {
     }
     System.out.println(isPalindrome ? "Palindrome" : "Not Palindrome");
     }
+// UC9
     public static boolean uc9_recursiveCheck(String s, int start, int end) {
 
     if(start >= end)
@@ -163,6 +165,8 @@ public class PalindromeChecker {
 
     return uc9_recursiveCheck(s,start+1,end-1);
 }
+// UC10
+
 public static void uc10_ignoreCaseSpaces() {
     Scanner sc = new Scanner(System.in);
     System.out.print("Enter a word:");
@@ -181,6 +185,24 @@ public static void uc10_ignoreCaseSpaces() {
         j--;
     }
     System.out.println(isPalindrome ? "Palindrome":"Not Palindrome");
+}
+// UC11
+
+class uc11_PalindromeService {
+
+    public boolean check(String s) {
+        int i = 0;
+        int j = s.length()-1;
+        while(i < j) {
+            if(s.charAt(i) != s.charAt(j))
+                return false;
+
+            i++;
+            j--;
+        }
+
+        return true;
+    }
 }
 
 }
