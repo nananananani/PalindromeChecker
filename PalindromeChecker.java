@@ -1,5 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -12,11 +14,12 @@ public class PalindromeChecker {
 
         System.out.println("==== Palindrome Checker App ====");
         System.out.println("Welcome User");
-        System.out.print("Enter a string:");
+        System.out.print("Enter a word:");
         String input = sc.nextLine();
         System.out.println("You entered: " + input);
 
         // UC2
+        System.out.print("Enter a word:");
         String word = sc.nextLine();
         String rev = "";
         for(int i = word.length()-1; i>=0; i--){
@@ -33,11 +36,15 @@ public class PalindromeChecker {
         uc6_stackQueuePalindrome(); //calling the method for UC6
         uc7_dequePalindrome(); //calling the method for UC7
         uc8_linkedListPalindrome(); //calling the method for UC8    
+        uc9_recursiveCheck(word, 0, word.length() - 1); //calling the method for UC9
+
     }
         // UC3
 
     public static void uc3_stringPalindrome() {
-            String s = "racecar";
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter a word:");
+            String s = sc.nextLine();
             int i = 0;
             int j = s.length() - 1;
             boolean isPalindrome = true;
@@ -55,7 +62,9 @@ public class PalindromeChecker {
 
     // UC4
     public static void uc4_arrayPalindrome() {
-        String s = "level";
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a word:");
+        String s = sc.nextLine();
         char[] arr = s.toCharArray();
         int i = 0;
         int j = arr.length - 1;
@@ -72,8 +81,10 @@ public class PalindromeChecker {
     }
     // UC5
     public static void uc5_stackPalindrome() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a word:");
         Stack<Character> stack = new Stack<>();
-        String s = "madam";
+        String s = sc.nextLine();
         for(char c : s.toCharArray())
             stack.push(c);
         String reversed = "";
@@ -87,7 +98,9 @@ public class PalindromeChecker {
     // UC6
 
     public static void uc6_stackQueuePalindrome() {
-        String s = "radar";
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a word:");
+        String s = sc.nextLine();
         Stack<Character> stack = new Stack<>();
         Queue<Character> queue = new LinkedList<>();
         for(char c : s.toCharArray()) {
@@ -139,4 +152,15 @@ public class PalindromeChecker {
     }
     System.out.println(isPalindrome ? "Palindrome" : "Not Palindrome");
     }
+    public static boolean uc9_recursiveCheck(String s, int start, int end) {
+
+    if(start >= end)
+        return true;
+
+    if(s.charAt(start) != s.charAt(end))
+        return false;
+
+    return uc9_recursiveCheck(s,start+1,end-1);
+}
+
 }
